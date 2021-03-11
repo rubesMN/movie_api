@@ -27,7 +27,7 @@ class MoviesController < ApplicationController
     options[:no_links] = params[:no_links] unless params[:no_links].blank?
     options[:no_auto_links] = params[:no_auto_links] unless params[:no_auto_links].blank?
     # render json: {:hello => "world"}
-    render json: ::MovieSerializer.new(@movies, options).serializable_hash.as_json
+    render json: ::MovieSerializer.new(@movies, options).serializable_hash
 
   end
 end

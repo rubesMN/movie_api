@@ -3,12 +3,11 @@ class Actor < ApplicationRecord
   attribute :favorite_movie_id, :squuid
 
   has_one :person, as: :personable
-  #accepts_nested_attributes_for :person # will this work?
+
   belongs_to :favorite_movie, class_name: "Movie"
   has_many :movies_actors
   has_many :movies, through: :movies_actors
 
-  # delegate :first_name, :last_name, :email, to: person # doesn't work in rails 6.1 for some reason
   def first_name
     person.first_name
   end
